@@ -1,0 +1,16 @@
+ok, so it looks like the text extraction is working, but not amazingly well
+- on first test, I ran text_extraction_test.py on the 9 decisions from 2/2/2024
+- next test: separating the decisions into nine files and running text_extraction_test.py on it
+    - Success! text extracted and parsed into 9 files (verified with the following command: 
+    "/Users/tillybrooks/Library/CloudStorage/Box-Box/2024Spring/ra/variance_env/bin/python /Users/tillybrooks/Library/CloudStorage/Box-Box/2024Spring/ra/text_extraction_test.py | grep -c "text here"")
+
+- next steps (for 2/17)
+    - verify quality of text extraction, refine regex searches, troubleshoot llm implementation
+    DAY OF NOTES:
+    - text extraction is good, made sure that the actual first line of each decision was in the output
+    - tokenization is working (this is good news bc i was concerned that the problem was the tokenizer because of the deprecation warning)
+    - let's edit the regex
+        - workign on fixing the N/A issue, we're getting mathces now on case number, but need more work still to get actual text output
+            - current output: None
+
+            

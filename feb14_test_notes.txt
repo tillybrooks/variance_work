@@ -1,0 +1,55 @@
+Here is the output from the first test:
+ILE: Decision Detail Filed February 2nd, 2024.pdf
+
+CASE_NO: NA
+
+ADDRESS: NA
+
+WARD: NA
+
+REQUEST: NA
+
+FACTS: NA
+
+REASONING: NA
+
+DECISION: NA
+
+Tokens used (approx.): 0 (API Cost ~$0.0)
+
+================================================
+
+Average approx. tokens used per item 0.0 (API Cost ~$0.0)
+
+                                           file case_no address ward request facts reasoning decision
+0  Decision Detail Filed February 2nd, 2024.pdf      NA      NA   NA      NA    NA        NA       NA
+
+
+Clearly there is a problem, so I will need to troubleshoot tomorrow morning to diagnose the exact issue
+
+The good news is that the code is all working fine...
+
+Things to check:
+- check text extraction (make separate python file to run it and view output)
+
+- break 02/02/2024 into constituent files
+
+- re-run extraction_code.py on split files
+
+- adapt and run NC code on split 02/02/2024 files
+
+- compare code and output with NC code output
+
+- think about how to improve regex searches/prompts
+    - do some digging into prompt engineering
+
+- warning message from pandas ("Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
+(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system.
+If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466")
+
+- "None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, 
+configuration and file/data utilities can be used." <- make sure this warning isn't affecting the output
+
+- review regex searches and implement improvements

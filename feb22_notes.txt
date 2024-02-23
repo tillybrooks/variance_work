@@ -1,0 +1,35 @@
+TEXT EXTRACTION AT THE COMMAND LINE (pdf to txt)
+once the files are OCR'ed it's also possible to extract the text at the command line, which
+is useful for little checks and smaller file management tasks. Here's how I implemented that process
+
+1. get pdfminer by putting the following line of code in at your command line:
+    % pip install pdfminer
+2. once you have pdfminer, you should be able to extract the text from the desired pdf file with the following code (replacing "filename" with the target file's name):
+    % pdf2txt.py -o filename.txt filename.pdf
+    the above line will take the text out of filename.pdf and put it into a new filename.txt
+3. check the text with the following line:
+    % more filename.txt
+    this line will allow you to see the contents of filename.txt in your terminal. Press use the up and down arrows to navigate
+    and q to exit the viewer
+OPTIONAL STEP TO CONVERT A BUNCH OF PDFs AT once
+5. if you want to run a bunch of pdfs at once, you can implement the process described above with a for loop in your terminal:
+    % for file in *.pdf; do
+        pdf2txt.py -o $file.txt $file
+      done
+6. if you want to move your files to another directory, do so with the following lines:
+    % mkdir /../txtversions
+    use this line to make a directory to store txt versions if you don't already have one
+    % mv *.txt txtversions
+    this line will move all txt files into the txtversions directory
+
+that's it! this process is useful for
+
+
+### Notes on regex searches:
+- i FINALLY FIXED the regex problem (i was extracting the info just fine, but the dataframe update was missinng an 
+so the script only added the data from the last iteration in the for loop)
+- note: looks like the pdf extraction process creates a file that shows up in the outout dataframe as follows:
+2                                         ..txt                   NA
+    - if we extract the text with shell scripting (the process described at the top of this document) and run the script on the txtversions
+    directory (modified to exclude the text exaction process in python), we may be able to avoid this outcome
+    - alternatively, we can just remove the ..txt files in a secondary cleaning process
